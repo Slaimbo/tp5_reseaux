@@ -1,0 +1,40 @@
+note
+
+Configuration réseau:
+
+cette configuration est celle en IPv6
+
+Les port en écoute sur VM3-6 : (1234)
+
+Proto Recv-Q Send-Q Adresse locale          Adresse distante        Etat        User       Inode       PID/Program name
+tcp        0      0 *:ssh                   *:*                     LISTEN      root       21219       -               
+tcp        0      0 VM3-6:smtp              *:*                     LISTEN      root       12519       -               
+tcp        0      0 *:46477                 *:*                     LISTEN      statd      9794        -               
+tcp        0      0 *:sunrpc                *:*                     LISTEN      root       9684        -               
+tcp        0      0 *:1234                  *:*                     LISTEN      m1reseaux  21803       2139/echoserveur.exe
+tcp6       0      0 [::]:ssh                [::]:*                  LISTEN      root       21221       -               
+tcp6       0      0 localhost:smtp          [::]:*                  LISTEN      root       12520       -               
+tcp6       0      0 [::]:sunrpc             [::]:*                  LISTEN      root       9687        -               
+tcp6       0      0 [::]:60180              [::]:*                  LISTEN      statd      9800        -               
+udp        0      0 *:1003                  *:*                                 root       9683        -               
+udp        0      0 VM3-6:1013              *:*                                 root       9786        -               
+udp        0      0 *:bootpc                *:*                                 root       9585        -               
+udp        0      0 *:sunrpc                *:*                                 root       9680        -               
+udp        0      0 *:33489                 *:*                                 statd      9791        -               
+udp        0      0 *:11509                 *:*                                 root       9556        -               
+udp6       0      0 [::]:45474              [::]:*                              statd      9797        -               
+udp6       0      0 [::]:1003               [::]:*                              root       9686        -               
+udp6       0      0 [::]:57369              [::]:*                              root       9557        -               
+udp6       0      0 [::]:sunrpc             [::]:*                              root       9685        -   
+
+on remarque que le serveur echoclient ipv4 écoute seulement sur une interface ipv4 (*:1234) et non
+sur une interface IPv6. Donc il sera impossible de se connecter sur le serveur echo (IPV4) depuis
+VM1 car le réseaux etabli entre ces machines est en IPv6
+
+
+La connection avec un client IPv4 avec une IPv6 en paramètre ne fonctionne pas car le client n'est pas
+codé pour. Le serveur lui aussi ne peut accepter une connection avec un IPv6.
+
+inet_ntoa : str   -> bytes 
+inet_ntop : bytes -> str       
+
