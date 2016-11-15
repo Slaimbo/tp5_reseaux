@@ -36,5 +36,17 @@ La connection avec un client IPv4 avec une IPv6 en paramètre ne fonctionne pas 
 codé pour. Le serveur lui aussi ne peut accepter une connection avec un IPv6.
 
 inet_ntoa : str   -> bytes 
-inet_ntop : bytes -> str       
+inet_ntop : bytes -> str
+
+
+La double pile est par default -> il faut forcé le IPv6 only
+
+Dernière question : 
+Avec un test sur les machine en salle de TP on vois qu'un host google.fr nous donne les ip v4 et v6.
+J'en déduis donc que c'est au client de choisir l'ip correct car le serveur donne plusieur possibilité.
+
+c'est pas faut
+
+
+
 
